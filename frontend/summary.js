@@ -44,8 +44,8 @@ document.getElementById('rzp-button1').onclick = async function (e) {
 };
 // Summary End
 
-//Close Button Start
+//Close Button Starts
 function redirectToPage() {
   window.location.href = 'registration.html';
 }
-//Close Button End
+//Close Button Ends
