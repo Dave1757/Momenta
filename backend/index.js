@@ -30,8 +30,14 @@ app.post("/signup", async (req, res) => {
         password: req.body.password,
         confirmPassword: req.body.Cpassword
     }
-    await User.insertMany([data])
-    res.redirect("index.html")
+    const checkuser = await User.findOne({ name: req.body.name })
+    // const checkuser = await User.findOne({ name: req.body.name })
+    if (checkuser) {
+        return res.send('<script>alert("User already exists!");  window.location.href="/signup";</script>');
+    } else {
+        await User.insertMany([data])
+        res.redirect("index.html")
+    }
 })
 
 app.post("/login", async (req, res) => {
